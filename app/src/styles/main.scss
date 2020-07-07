@@ -1,11 +1,15 @@
 // * {
 //     border: 1px solid black;
 // }
+body {
+    background: linear-gradient(#5485ce, #5ba7a0);
+}
 
 .App {
-    margin: 2rem auto;
+    margin: 0 auto;
     width: 90%;
     min-width: 400px;
+    min-height: 100vh;
 }
 
 .UserCard {
@@ -17,7 +21,8 @@
     overflow: hidden;
     min-width: 25rem;
     max-width: 50rem;
-    
+    background: white;
+
     img {
         border-radius: 0.5rem;
     }
@@ -68,7 +73,7 @@ header {
 }
 
 .container-small-card {
-    @include flex(row, space-evenly, center);
+    @include flex(row, flex-start, center);
     flex-wrap: wrap;
 
     .UserCard {
