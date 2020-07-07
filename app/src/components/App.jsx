@@ -11,7 +11,40 @@ const FOLLOWERS = '/followers';
 
 class App extends React.Component {
   state = {
-    userData: {},
+    userData: {
+      "login": "drew-ross",
+      "id": 62345438,
+      "node_id": "MDQ6VXNlcjYyMzQ1NDM4",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/62345438?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/drew-ross",
+      "html_url": "https://github.com/drew-ross",
+      "followers_url": "https://api.github.com/users/drew-ross/followers",
+      "following_url": "https://api.github.com/users/drew-ross/following{/other_user}",
+      "gists_url": "https://api.github.com/users/drew-ross/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/drew-ross/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/drew-ross/subscriptions",
+      "organizations_url": "https://api.github.com/users/drew-ross/orgs",
+      "repos_url": "https://api.github.com/users/drew-ross/repos",
+      "events_url": "https://api.github.com/users/drew-ross/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/drew-ross/received_events",
+      "type": "User",
+      "site_admin": false,
+      "name": "Drew Ross",
+      "company": null,
+      "blog": "",
+      "location": null,
+      "email": null,
+      "hireable": null,
+      "bio": null,
+      "twitter_username": null,
+      "public_repos": 39,
+      "public_gists": 0,
+      "followers": 4,
+      "following": 11,
+      "created_at": "2020-03-18T15:10:49Z",
+      "updated_at": "2020-07-07T19:39:19Z"
+    },
     followersData: [
       {
         "login": "mrzacsmith",
@@ -52,7 +85,7 @@ class App extends React.Component {
         "received_events_url": "https://api.github.com/users/Impulse2020/received_events",
         "type": "User",
         "site_admin": false
-    }
+      }
     ]
   };
 
@@ -70,10 +103,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Github User Card</h1>
-        <div className="container-main-card">
-          <UserCard user={this.state.userData} />
-          <UserCardList followers={this.state.followersData} />
+        <header>
+          <h1>Github User Card</h1>
+        </header>
+        <div className="container-main">
+          <div>
+            <h2>Selected User</h2>
+            <UserCard user={this.state.userData} />
+          </div>
+          <div>
+            <h2>Followers</h2>
+            <UserCardList followers={this.state.followersData} />
+          </div>
         </div>
       </div>
     );
