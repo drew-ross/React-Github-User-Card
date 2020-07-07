@@ -1,6 +1,7 @@
 // * {
 //     border: 1px solid black;
 // }
+
 body {
     background: linear-gradient(#5485ce, #5ba7a0);
 }
@@ -55,7 +56,7 @@ body {
 
 header {
     margin: 4rem auto;
-    text-align: center;
+    // text-align: center;
 }
 
 .container-main {
@@ -68,7 +69,7 @@ header {
     }
 
     h2 {
-        margin: 1rem 2rem;
+        margin: 1rem 0;
     }
 }
 
@@ -78,7 +79,7 @@ header {
 
     .UserCard {
         width: 25rem;
-        margin: 0 2rem 2rem;
+        margin: 0 2rem 2rem 0;
 
         p {
             font-size: 1.8rem;
