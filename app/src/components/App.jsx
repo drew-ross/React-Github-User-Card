@@ -2,21 +2,33 @@ import React from 'react';
 import axios from 'axios';
 import UserCard from './UserCard';
 import UserCardList from './UserCardList';
+import Search from './Search';
 
 //constants
 const API_URL = 'https://api.github.com/users/';
-const USER = 'drew-ross';
 const FOLLOWERS = '/followers';
 // https://api.github.com/users/drew-ross  /followers
 
 class App extends React.Component {
   state = {
+    userSearch: 'drew-ross',
+    searchText: 'drew-ross',
     userData: null,
     followerData: []
   };
 
   componentDidMount() {
-    axios.get(`${API_URL}${USER}`)
+    this.getUserData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.userSearch !== prevState.userSearch) {
+      this.getUserData();
+    }
+  }
+
+  getUserData() {
+    axios.get(`${API_URL}${this.state.userSearch}`)
       .then(res => {
         this.setState({
           ...this.state,
@@ -24,7 +36,7 @@ class App extends React.Component {
         });
       })
       .catch(err => console.log(err));
-    axios.get(`${API_URL}${USER}${FOLLOWERS}`)
+    axios.get(`${API_URL}${this.state.userSearch}${FOLLOWERS}`)
       .then(res => {
         this.setState({
           ...this.state,
@@ -34,12 +46,32 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleChanges = e => {
+    this.setState({
+      ...this.state,
+      searchText: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      userSearch: this.state.searchText.trim()
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        
+
         <header>
           <h1>Github User Card</h1>
+          <Search
+            searchText={this.state.searchText}
+            handleChanges={this.handleChanges}
+            handleSubmit={this.handleSubmit}
+          />
         </header>
 
         {this.state.userData

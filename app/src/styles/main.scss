@@ -7,8 +7,8 @@ body {
 }
 
 .App {
-    margin: 0 auto;
-    width: 90%;
+    margin: 0 5rem;
+    width: 95%;
     min-width: 400px;
     min-height: 100vh;
 }
@@ -26,6 +26,7 @@ body {
 
     img {
         border-radius: 0.5rem;
+        width: 100%;
     }
 
     p {
@@ -56,8 +57,23 @@ body {
 
 header {
     margin: 4rem auto;
-    // text-align: center;
+    width: 100%;
+    @include flex(row, flex-start, center);
 }
+
+.Search {
+    @include flex(row, flex-start, center);
+    
+    button {
+        padding: 0 2rem;
+    }
+
+    #search-input {
+        margin-left: 5rem;
+        padding-left: 1rem;
+    }
+}
+
 
 .container-main {
     width: 100%;
@@ -76,10 +92,11 @@ header {
 .container-small-card {
     @include flex(row, flex-start, center);
     flex-wrap: wrap;
-
+    max-width: none;
+    
     .UserCard {
         width: 25rem;
-        margin: 0 2rem 2rem 0;
+        margin: 0 1.2rem 2rem 0;
 
         p {
             font-size: 1.8rem;
