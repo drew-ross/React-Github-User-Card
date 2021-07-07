@@ -1,0 +1,105 @@
+// * {
+//     border: 1px solid black;
+// }
+
+body {
+    background: linear-gradient(#5485ce, #5ba7a0);
+}
+
+.App {
+    margin: 0 5rem;
+    width: 95%;
+    min-width: 400px;
+    min-height: 100vh;
+}
+
+.UserCard {
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.192);
+    position: relative;
+    overflow: hidden;
+    min-width: 25rem;
+    max-width: 50rem;
+    background: white;
+
+    img {
+        border-radius: 0.5rem;
+        width: 100%;
+    }
+
+    p {
+        margin: 0.5rem 0;
+    }
+
+    a {
+        .hover-text {
+            position: absolute;
+            left: -20rem;
+            text-decoration: none;
+            color: white;
+            background: gray;
+            padding: 0 1rem 0 2rem;
+            opacity: 0;
+            transition: opacity .2s, left .2s;
+            border-radius: 0 2rem 2rem 0;
+        }
+
+        &:hover {
+            .hover-text {
+                left: 0;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+header {
+    margin: 4rem auto;
+    width: 100%;
+    @include flex(row, flex-start, center);
+}
+
+.Search {
+    @include flex(row, flex-start, center);
+    
+    button {
+        padding: 0 2rem;
+    }
+
+    #search-input {
+        margin-left: 5rem;
+        padding-left: 1rem;
+    }
+}
+
+
+.container-main {
+    width: 100%;
+    @include flex(row, space-evenly, center);
+    flex-wrap: wrap;
+
+    & > div {
+        width: 50%;
+    }
+
+    h2 {
+        margin: 1rem 0;
+    }
+}
+
+.container-small-card {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    max-width: none;
+    
+    .UserCard {
+        width: 25rem;
+        margin: 0 1.2rem 2rem 0;
+
+        p {
+            font-size: 1.8rem;
+        }
+    }
+}
